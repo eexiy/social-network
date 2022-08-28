@@ -6,12 +6,13 @@
 
 .app__wrapper {
   display: grid;
-  grid-template-areas: "header header" "side__bar content";
+  grid-template-areas: "header header""side__bar content";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   gap: 10px;
 }
 
-
-
-
+.app__wrapper-content {
+  grid-area: content;
+  background: cornflowerblue;
+}

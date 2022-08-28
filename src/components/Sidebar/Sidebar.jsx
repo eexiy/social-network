@@ -4,19 +4,19 @@ const Sidebar = () => {
     return (
         <div className={s.side__bar}>
             <ul>
-                <li> <a href='s' className={s.item}>Profile</a></li>
+                <li> <a href="/profile" className={s.item}>Profile</a></li>
             </ul>
             <ul>
-                <li><a href='s' className={s.item}>Messages</a></li>
+                <li><a href="/messages" className={s.item}>Messages</a></li>
             </ul>
             <ul>
-                <li><a href='s' className={s.item}>News</a></li>
+                <li><a href="/news" className={s.item}>News</a></li>
             </ul>
             <ul>
-                <li><a href='s' className={s.item}>Music</a></li>
+                <li><a href="/music" className={s.item}>Music</a></li>
             </ul>
             <ul>
-                <li><a href='s' className={s.item}>Settings</a></li>
+                <li><a href="/settings" className={s.item}>Settings</a></li>
             </ul>
         </div>
     );
