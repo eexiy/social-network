@@ -5,4 +5,15 @@
 
 .item {
   color: #FFFFFF;
+  font-size: 22px;
+  margin-left: 5px;
+  transition: .3s;
+}
+
+.item:hover {
+  color: cadetblue;
+}
+
+.item.active {
+  color: gold;
 }
