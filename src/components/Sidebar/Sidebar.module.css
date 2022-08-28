@@ -1,0 +1,8 @@
+.side__bar {
+  grid-area: side__bar;
+  background: burlywood;
+}
+
+.item {
+  color: #FFFFFF;
+}

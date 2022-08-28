@@ -1,0 +1,5 @@
+.item img {
+    max-width: 80px;
+    width: 100%;
+    border-radius: 50%;
+}

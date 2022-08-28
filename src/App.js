@@ -1,22 +1,14 @@
 import './App.css';
+import Header from './components/Header/Header';
+import Profile from './components/Profile/Profile';
+import Sidebar from './components/Sidebar/Sidebar';
 
 const App = () => {
   return (
-    <div className="App">
-      <ul>
-        <li>
-          Simple HTML
-        </li>           
-        <li>
-          Simple CSS
-        </li>
-        <li>
-          Simple JS
-        </li>
-        <li>
-          Simple SASS
-        </li>
-      </ul>
+    <div className='app__wrapper'>
+      <Header />
+      <Sidebar />
+      <Profile /> 
     </div>
   );
 }
