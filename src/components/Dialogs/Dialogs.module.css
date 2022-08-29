@@ -3,19 +3,3 @@
     grid-template-columns: 2fr 8fr;
     padding: 20px;
 }
-
-.user {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: blanchedalmond;
-}
-
-.user.active {
-    color: gold;
-}
-
-.message {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: blanchedalmond;
-}

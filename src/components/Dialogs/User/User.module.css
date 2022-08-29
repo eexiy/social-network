@@ -1,0 +1,10 @@
+.user a{
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: blanchedalmond;
+}
+
+.user a.active {
+    color: gold;
+}
+
