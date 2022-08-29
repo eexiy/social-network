@@ -13,7 +13,7 @@ const User = (props) => {
 }
 
 const Message = (props) => {
-    return(
+    return (
         <div className={s.message}>
             {props.message}
         </div>
@@ -21,18 +21,31 @@ const Message = (props) => {
 }
 
 const Dialogs = (props) => {
+
+    const usersData = [
+        { id: 1, name: 'Lily' },
+        { id: 2, name: 'John' },
+        { id: 3, name: 'Alex' },
+        { id: 4, name: 'Sue' }
+    ]
+
+    const messagesData = [
+        { id: 1, messages: 'Hi! How are you?' },
+        { id: 2, messages: 'I`m fine, and you?' },
+        { id: 3, messages: 'Good' },
+        { id: 4, messages: 'Yo' }
+    ]
+
+    const usersElement = usersData.map(user => <User name={user.name} id={user.id} />)
+    const messagesElement = messagesData.map(message => <Message message={message.messages} />)
+
     return (
         <div className={s.dialogs}>
             <div className={s.users}>
-                <User name='Lily' id='1' />
-                <User name='John' id='2' />
-                <User name='Alex' id='3' />
-                <User name='Sue' id='4' />
+                {usersElement}
             </div>
             <div className={s.messages}>
-                <Message message='Hi! How are you?' />
-                <Message message='I`m fine, and you?' />
-                <Message message='Good' />
+                {messagesElement}
             </div>
         </div>
     )
