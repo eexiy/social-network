@@ -13,8 +13,14 @@ const App = (props) => {
         <Sidebar />
         <div className='app__wrapper-content'>
           <Routes>
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/messages/*' element={<Dialogs />} />
+            <Route path='/profile'
+              element={<Profile
+                postsData={props.postsData} />} />
+                
+            <Route path='/messages/*'
+              element={<Dialogs
+                usersData={props.usersData}
+                messagesData={props.messagesData} />} />
           </Routes>
         </div>
       </div>
