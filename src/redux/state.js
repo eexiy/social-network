@@ -25,7 +25,7 @@ const state = {
 
 
 export const addPost = (postMessage) => {
-  let newPost = {
+  const newPost = {
     id: 5,
     post: postMessage,
     likes: 0
@@ -33,4 +33,14 @@ export const addPost = (postMessage) => {
   state.profilePage.postsData.push(newPost)
   rerenderEntireTree(state)
 }
+
+export const addMessage = (message) => {
+  const newMessage = {
+    id: 6,
+    message: message
+  }
+  state.dialogsPage.messagesData.push(newMessage)
+  rerenderEntireTree(state)
+}
+
 export default state
