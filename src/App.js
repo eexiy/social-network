@@ -14,8 +14,16 @@ const App = (props) => {
         <Sidebar />
         <div className='app__wrapper-content'>
           <Routes>
-            <Route path='/profile/*' element={<Profile state={props.state.profilePage} addPost={props.addPost} />} />
-            <Route path='/messages/*' element={<Dialogs state={props.state.dialogsPage} addMessage={props.addMessage} />} />
+            <Route path='/profile/*' element={
+              <Profile
+                profilePage={props.state.profilePage}
+                addPost={props.addPost}
+                updateNewPostText={props.updateNewPostText} />} />
+
+            <Route path='/messages/*' element={
+              <Dialogs
+                state={props.state.dialogsPage}
+                addMessage={props.addMessage} />} />
           </Routes>
         </div>
       </div>
