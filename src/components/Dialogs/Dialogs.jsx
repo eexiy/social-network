@@ -7,16 +7,21 @@ import User from './User/User';
 
 const Dialogs = (props) => {
 
-    const usersElement = props.state.usersData.map(user => <User name={user.name} id={user.id} />)
-    const messagesElement = props.state.messagesData.map(message => <Message message={message.message} />)
+    const usersElement = props.dialogsPage.usersData.map(user => <User name={user.name} id={user.id} />)
+    const messagesElement = props.dialogsPage.messagesData.map(message => <Message message={message.message} />)
 
     const newMessageElement = React.useRef()
 
     const sendMessage = () => {
-        let text = newMessageElement.current.value
-        props.addMessage(text)
-        newMessageElement.current.value = ''
+        props.addMessage()
     }
+
+    const onMessageChange = () => {
+        let text = newMessageElement.current.value
+        props.updateNewMessageText(text)
+
+    }
+    debugger
 
     return (
         <div className={s.dialogs}>
@@ -26,7 +31,10 @@ const Dialogs = (props) => {
             <div className={s.messages}>
                 {messagesElement}
                 <div className={s.messages}>
-                    <textarea id="" cols="30" rows="3" ref={newMessageElement}></textarea>
+                    <textarea name="" id="" cols="30" rows="3" 
+                    value={props.dialogsPage.newMessageText}
+                    onChange={onMessageChange} 
+                    ref={newMessageElement} />
                 </div>
                 <div>
                     <button onClick={sendMessage}>Send</button>

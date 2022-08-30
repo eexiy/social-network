@@ -14,6 +14,7 @@ const state = {
       { id: 3, message: 'Good' },
       { id: 4, message: 'Yo' }
     ],
+    newMessageText: 'dsa'
   },
   profilePage: {
     postsData: [
@@ -38,12 +39,13 @@ export const addPost = () => {
 }
 
 
-export const addMessage = (message) => {
+export const addMessage = () => {
   const newMessage = {
     id: 6,
-    message: message
+    message: state.dialogsPage.newMessageText
   }
   state.dialogsPage.messagesData.push(newMessage)
+  state.dialogsPage.newMessageText = ''
   rerenderEntireTree(state)
 }
 
@@ -51,5 +53,11 @@ export const updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText
   rerenderEntireTree(state)
 }
+
+export const updateNewMessageText = (newText) => {
+  state.dialogsPage.newMessageText = newText
+  rerenderEntireTree(state)
+}
+
 
 export default state
