@@ -6,8 +6,8 @@ import User from './User/User';
 
 const Dialogs = (props) => {
 
-    const usersElement = props.usersData.map(user => <User name={user.name} id={user.id} />)
-    const messagesElement = props.messagesData.map(message => <Message message={message.messages} />)
+    const usersElement = props.state.usersData.map(user => <User name={user.name} id={user.id} />)
+    const messagesElement = props.state.messagesData.map(message => <Message message={message.messages} />)
 
     return (
         <div className={s.dialogs}>
