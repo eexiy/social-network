@@ -1,3 +1,4 @@
+
 const store = {
   _state: {
     dialogsPage: {
@@ -29,16 +30,6 @@ const store = {
   _callSubscriber() {
     console.log('State rendered');
   },
-  addPost() {
-    const newPost = {
-      id: 5,
-      post: this._state.profilePage.newPostText,
-      likes: 0
-    }
-    this._state.profilePage.postsData.push(newPost)
-    this._state.profilePage.newPostText = ''
-    this._callSubscriber(this._state)
-  },
   addMessage() {
     const newMessage = {
       id: 6,
@@ -48,18 +39,28 @@ const store = {
     this._state.dialogsPage.newMessageText = ''
     this._callSubscriber(this._state)
   },
-  updateNewPostText (newText) {
-    this._state.profilePage.newPostText = newText
-    this._callSubscriber(this._state)
-  },
-   updateNewMessageText  (newText){
+  updateNewMessageText(newText) {
     this._state.dialogsPage.newMessageText = newText
     this._callSubscriber(this._state)
   },
-  subscribe (observer) {
+  subscribe(observer) {
     this._callSubscriber = observer
+  },
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      const newPost = {
+        id: 5,
+        post: this._state.profilePage.newPostText,
+        likes: 0
+      }
+      this._state.profilePage.postsData.push(newPost)
+      this._state.profilePage.newPostText = ''
+      this._callSubscriber(this._state)
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._state.profilePage.newPostText = action.newText
+      this._callSubscriber(this._state)
+    }
   }
-  
 }
 window.state = store
 export default store
