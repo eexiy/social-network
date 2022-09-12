@@ -1,4 +1,7 @@
-
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const ADD_POST = 'ADD-POST'
+const ADD_MESSAGE = 'ADD-MESSAGE'
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
 const store = {
   _state: {
     dialogsPage: {
@@ -30,24 +33,12 @@ const store = {
   _callSubscriber() {
     console.log('State rendered');
   },
-  addMessage() {
-    const newMessage = {
-      id: 6,
-      message: this._state.dialogsPage.newMessageText
-    }
-    this._state.dialogsPage.messagesData.push(newMessage)
-    this._state.dialogsPage.newMessageText = ''
-    this._callSubscriber(this._state)
-  },
-  updateNewMessageText(newText) {
-    this._state.dialogsPage.newMessageText = newText
-    this._callSubscriber(this._state)
-  },
   subscribe(observer) {
     this._callSubscriber = observer
   },
   dispatch(action) {
-    if (action.type === 'ADD-POST') {
+    // Profile page
+    if (action.type === ADD_POST) {
       const newPost = {
         id: 5,
         post: this._state.profilePage.newPostText,
@@ -56,11 +47,33 @@ const store = {
       this._state.profilePage.postsData.push(newPost)
       this._state.profilePage.newPostText = ''
       this._callSubscriber(this._state)
-    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+    } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profilePage.newPostText = action.newText
+      this._callSubscriber(this._state)
+    }
+    // Dialogs page
+    if (action.type === ADD_MESSAGE) {
+      const newMessage = {
+        id: 6,
+        message: this._state.dialogsPage.newMessageText
+      }
+      this._state.dialogsPage.messagesData.push(newMessage)
+      this._state.dialogsPage.newMessageText = ''
+      this._callSubscriber(this._state)
+    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+      this._state.dialogsPage.newMessageText = action.newText
       this._callSubscriber(this._state)
     }
   }
 }
+
+// Profile page
+export const addPostActionCreator = () => ({ type: ADD_POST })
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+
+// Dialogs page
+export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
+export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text})
+
 window.state = store
 export default store
