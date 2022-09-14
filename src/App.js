@@ -6,7 +6,6 @@ import Sidebar from './components/Sidebar/Sidebar';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = (props) => {
-
   return (
     <BrowserRouter>
       <div className='app__wrapper'>
@@ -17,7 +16,7 @@ const App = (props) => {
             <Route path='/profile/*' element={
               <Profile
                 profilePage={props.state.profilePage}
-                dispatch={props.dispatch}/>} />
+                dispatch={props.dispatch} />} />
 
             <Route path='/messages/*' element={
               <Dialogs
