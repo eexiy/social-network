@@ -1,5 +1,4 @@
 import React from 'react';
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/dialogsReducer';
 import s from './Dialogs.module.css';
 import Message from './Message/Message';
 import User from './User/User';
@@ -8,17 +7,18 @@ import User from './User/User';
 
 const Dialogs = (props) => {
 
-    const usersElement = props.dialogsPage.usersData.map(user => <User name={user.name} id={user.id} />)
-    const messagesElement = props.dialogsPage.messagesData.map(message => <Message message={message.message} />)
+    let state = props.dialogsPage
+
+    const usersElement = state.usersData.map(user => <User name={user.name} id={user.id} />)
+    const messagesElement = state.messagesData.map(message => <Message message={message.message} />)
 
     const sendMessage = () => {
-        props.dispatch(addMessageActionCreator())
+        props.sendMessage()
     }
 
     const onMessageChange = (e) => {
         let text = e.target.value
-        const action = updateNewMessageTextActionCreator(text)
-        props.dispatch(action)
+        props.updateNewMessageText(text)
     }
 
     return (
