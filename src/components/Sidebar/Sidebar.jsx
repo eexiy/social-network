@@ -11,6 +11,9 @@ const Sidebar = () => {
                 <li><NavLink to="/messages" className={s.item}>Messages</NavLink></li>
             </ul>
             <ul>
+                <li><NavLink to="/users" className={s.item}>Users</NavLink></li>
+            </ul>
+            <ul>
                 <li><NavLink to="/news" className={s.item}>News</NavLink></li>
             </ul>
             <ul>
