@@ -2,24 +2,7 @@ const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
 const initialState = {
-    users: [
-        {
-            id: 1, photoUrl: 'https://www.kibrispdr.org/data/999/avatar-logo-template-1.jpg',
-            followed: true, fullName: 'Mark', status: 'i`m not a girlfriend', location: { country: 'THE USA', city: 'Los Angeles' }
-        },
-        {
-            id: 2, photoUrl: 'https://www.kibrispdr.org/data/999/avatar-logo-template-1.jpg',
-            followed: true, fullName: 'John', status: 'Peace your home', location: { country: 'Ukraine', city: 'Kiev' }
-        },
-        {
-            id: 3, photoUrl: 'https://www.kibrispdr.org/data/999/avatar-logo-template-1.jpg',
-            followed: true, fullName: 'Lily', status: 'Hello everyone', location: { country: 'Russia', city: 'Moscow' }
-        },
-        {
-            id: 4, photoUrl: 'https://www.kibrispdr.org/data/999/avatar-logo-template-1.jpg',
-            followed: false, fullName: 'Alex', status: 'Im a boss', location: { country: 'THE USA', city: 'New York' }
-        },
-    ]
+    users: []
 }
 
 
@@ -48,7 +31,7 @@ const usersReducer = (state = initialState, action) => {
         case SET_USERS:
             return {
                 ...state,
-                users: { ...state.users, ...action.users }
+                users: [...state.users, ...action.users]
             }
         default:
             return state

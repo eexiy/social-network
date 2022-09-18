@@ -7,7 +7,6 @@ const mapStateToProps = (state) => {
         users: state.usersPage.users
     }
 }
-
 const mapDispatchToProps = (dispatch) => {
     return {
         follow: (userId) => {
@@ -18,9 +17,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         setUsers: (users) => {
             dispatch(setUsersAC(users))
-        }
-        
+        },
     }
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(Users)
