@@ -5,3 +5,7 @@
     width: 100%;
     border-radius: 50%;
 }
+
+.users__selectPage {
+    font-weight: bold;
+}
