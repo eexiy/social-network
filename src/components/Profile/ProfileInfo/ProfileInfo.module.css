@@ -5,3 +5,16 @@
 .profile__info {
     padding: 10px;
 }
+
+.profile__infoAva {
+    max-width: 200px;
+    width: 100%;
+}
+
+.profile__infoContact {
+    margin-left: 20px;
+}
+
+.profile__infoContact ul {
+    list-style: none;
+}
