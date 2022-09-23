@@ -14,14 +14,15 @@ const App = (props) => {
         <Sidebar />
         <div className='app__wrapper-content'>
           <Routes>
-            <Route path='/profile/*' element={
-              <ProfileContainer />} />
+            <Route path='/profile/:userId/*' element={<ProfileContainer />} />
+              {/* <Route path=":userId/*" element={<ProfileContainer />} />
+            <Route /> */}
 
             <Route path='/messages/*' element={
               <DialogsContainer />} />
-            
+
             <Route path='/users/*' element={
-              <UsersContainer /> } />
+              <UsersContainer />} />
           </Routes>
         </div>
       </div>
