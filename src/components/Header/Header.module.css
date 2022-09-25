@@ -2,3 +2,14 @@
   grid-area: header;
   background: greenyellow;
 }
+
+.header__navContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__navContent{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 15px;
+}

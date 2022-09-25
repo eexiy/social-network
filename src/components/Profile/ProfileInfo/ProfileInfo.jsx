@@ -1,7 +1,8 @@
 import Preloader from '../../../common/Preloader/Preloader'
 import s from './ProfileInfo.module.css'
+import userPhoto from '../../../assets/images/ava.webp'
 
-const ProfileInfo = ({profile}) => {
+const ProfileInfo = ({ profile }) => {
 
     if (!profile) {
         return <Preloader />
@@ -13,7 +14,9 @@ const ProfileInfo = ({profile}) => {
                 <img src="https://i.pinimg.com/originals/76/e9/23/76e9238fca30a0fc41b6f5fac75b516b.jpg" alt="" />
             </div>
             <div className={s.profile__info}>
-                <img className={s.profile__infoAva} src={profile.photos.large} alt="" />
+                <img className={s.profile__infoAva} src={profile.photos.large !== null
+                    ? profile.photos.large
+                    : userPhoto} alt="" />
                 <div className={s.profile__infoContact}>
                     <ul>
                         <li>{profile.fullName}</li>
