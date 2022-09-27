@@ -1,7 +1,7 @@
 import s from './Users.module.css'
 import userPhoto from '../../assets/images/ava.webp'
 import { NavLink } from 'react-router-dom'
-import axios from 'axios'
+import { usersAPI } from '../api/api'
 
 const Users = (props) => {
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -32,12 +32,7 @@ const Users = (props) => {
                         <div>
                             {user.followed
                                 ? <button onClick={() => {
-                                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
-                                        withCredentials: true,
-                                        headers: {
-                                            "API-KEY": "12d68bc4-78de-4bd1-b337-a8b228af48d6"
-                                        }
-                                    }).then(response => {
+                                    usersAPI.deleteUsers(user.id).then(response => {
                                         if (response.resultCode === 0) {
                                             props.unfollow(user.id)
                                         }
@@ -45,12 +40,7 @@ const Users = (props) => {
 
                                 }}>Unfollow</button>
                                 : <button onClick={() => {
-                                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
-                                        withCredentials: true,
-                                        headers: {
-                                            "API-KEY": "12d68bc4-78de-4bd1-b337-a8b228af48d6"
-                                        }
-                                    }).then(response => {
+                                    usersAPI.postUsers(user.id).then(response => {
                                         if (response.resultCode === 0) {
                                             props.follow(user.id)
                                         }
