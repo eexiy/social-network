@@ -4,9 +4,6 @@ import { connect } from "react-redux";
 import {
     follow,
     setCurrentPage,
-
-
-    
     unfollow,
     toggleFollowingProgress,
     getUsers
