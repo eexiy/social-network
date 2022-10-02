@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/dialogsReducer';
 import Dialogs from './Dialogs';
 
@@ -20,6 +22,13 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+const DialogsRedirectComponent = (props) => {
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (!props.isAuth) return navigate('/login')
+    })
+    return <Dialogs {...props} />
+}
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(DialogsRedirectComponent)
 
 export default DialogsContainer
