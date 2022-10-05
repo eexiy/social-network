@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/dialogsReducer';
+import { addMessageActionCreator } from '../../redux/dialogsReducer';
 import Dialogs from './Dialogs';
 
 const mapStateToProps = (state) => {
@@ -13,11 +13,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateNewMessageText: (text) => {
-            dispatch(updateNewMessageTextActionCreator(text))
-        },
-        sendMessage: () => {
-            dispatch(addMessageActionCreator())
+        sendMessage: (newMessageText) => {
+            dispatch(addMessageActionCreator(newMessageText))
         }
     }
 }
@@ -27,7 +24,7 @@ const DialogsRedirectComponent = (props) => {
     useEffect(() => {
         if (!props.isAuth) return navigate('/login')
     })
-    return <Dialogs {...props} />
+    return <Dialogs {...props}  />
 }
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(DialogsRedirectComponent)
 
