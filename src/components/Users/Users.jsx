@@ -1,8 +1,9 @@
 import s from './Users.module.css'
 import userPhoto from '../../assets/images/ava.webp'
-import { NavLink } from 'react-router-dom'
+import { Navigate, NavLink } from 'react-router-dom'
 
 const Users = (props) => {
+    if(!props.isAuth) return  <Navigate to='/profile/6724' />
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
     const pages = []
     for (let i = 1; i <= pagesCount; i++) {

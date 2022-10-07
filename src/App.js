@@ -1,15 +1,27 @@
+import React from 'react';
 import './App.css';
 import Sidebar from './components/Sidebar/Sidebar';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
+import { connect } from 'react-redux';
+import { initializeApp } from './redux/appReducer';
+import Preloader from './common/Preloader/Preloader';
 
-const App = (props) => {
-  return (
-    <BrowserRouter>
+class App extends React.Component {
+
+  componentDidMount() {
+    this.props.initializeApp()
+  }
+
+  render() {
+
+    if (!this.props.initialized) return <Preloader /> 
+
+    return (
       <div className='app__wrapper'>
         <HeaderContainer />
         <Sidebar />
@@ -23,8 +35,14 @@ const App = (props) => {
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
-  );
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    initialized: state.app.initialized
+  }
+}
+
+export default connect(mapStateToProps, { initializeApp })(App);
