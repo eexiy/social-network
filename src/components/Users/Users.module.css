@@ -5,11 +5,11 @@
     width: 100%;
     border-radius: 50%;
 }
-
+/* 
 .users {
     display: flex;
     flex-wrap: wrap;
-}
+} */
 
 .users__num {
     cursor: pointer;
