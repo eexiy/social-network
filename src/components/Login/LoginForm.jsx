@@ -1,4 +1,5 @@
-import { ErrorMessage, Field, Form, Formik } from "formik"
+import { ErrorMessage, Form, Formik } from "formik"
+import { createField } from "../../common/Preloader/FormValidation/FormControls";
 import loginFormSchema from "../../common/Preloader/FormValidation/LoginFormSchema"
 
 const validateEmail = (value) => {
@@ -17,25 +18,16 @@ const LoginForm = (props) => {
             <Formik
                 initialValues={{ email: "", password: "", rememberMe: false }}
                 validationSchema={loginFormSchema}
-                onSubmit={(values,  setFieldValue) => {
+                onSubmit={(values, setFieldValue) => {
                     props.login(values.email, values.password, values.rememberMe)
-                    console.log(values)
                 }}>
                 {() => (
                     <Form>
-                        <div>
-                            <Field validate={validateEmail} type={'text'} name={'email'} placeholder={'e-mail'} />
-                        </div>
+                        {createField(validateEmail, 'text', 'email', 'e-mail')}
                         <ErrorMessage name="email" component="div" />
-
-                        <div>
-                            <Field type={'password'} name={'password'} placeholder={'password'} />
-                        </div>
+                        {createField(null, 'password', 'password', 'password')}
                         <ErrorMessage name="password" component="div" />
-                        <div>
-                            <Field type={'checkbox'} name={'rememberMe'} />
-                            <label htmlFor={'rememberMe'}> Remember me </label>
-                        </div>
+                        {createField(null, 'checkbox', 'rememberMe', null, 'Remember me')}
                         <button type='submit'>Log in</button>
                     </Form>
                 )}

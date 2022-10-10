@@ -8,16 +8,16 @@ const instance = axios.create({
 
 export const usersAPI = {
     getUsers(currentPage, pageSize) {
-        return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data)
+        return instance.get(`users?page=${currentPage}&count=${pageSize}`)
     },
     unfollow(userId) {
-        return instance.delete(`follow/${userId}`).then(response => response.data)
+        return instance.delete(`follow/${userId}`)
     },
     follow(userId) {
-        return instance.post(`follow/${userId}`).then(response => response.data)
+        return instance.post(`follow/${userId}`)
     },
     auth() {
-        return instance.get(`auth/me`).then(response => response.data)
+        return instance.get(`auth/me`)
     },
     getProfile(userId) {
         console.warn('Obsolete method. Please use profileAPI object.');
@@ -37,13 +37,13 @@ export const profileAPI = {
 }
 export const authAPI = {
     auth() {
-        return instance.get(`auth/me`).then(response => response.data)
+        return instance.get(`auth/me`)
     },
     login(email, password, rememberMe = false) {
-        return instance.post(`auth/login`, { email, password, rememberMe }).then(response => response.data)
+        return instance.post(`auth/login`, { email, password, rememberMe })
     },
     logout() {
-        return instance.delete(`auth/login`).then(response => response.data)
+        return instance.delete(`auth/login`)
     },
 }
 
