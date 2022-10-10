@@ -1,6 +1,6 @@
 import s from './Users.module.css'
 import { Navigate } from 'react-router-dom'
-import Paginator from './Paginator'
+import Paginator from '../../common/Preloader/Paginator/Paginator'
 import User from './User'
 
 const Users = ({ totalUsersCount, pageSize, currentPage, onPageChange, ...props }) => {

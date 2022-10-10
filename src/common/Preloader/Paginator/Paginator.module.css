@@ -1,0 +1,11 @@
+.users__num {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    column-gap: 5px;
+    margin-top: 20px;
+}
+
+.users__selectPage {
+    font-weight: bold;
+}

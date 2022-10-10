@@ -5,18 +5,4 @@
     width: 100%;
     border-radius: 50%;
 }
-/* 
-.users {
-    display: flex;
-    flex-wrap: wrap;
-} */
 
-.users__num {
-    cursor: pointer;
-    display: flex;
-    column-gap: 5px;
-}
-
-.users__selectPage {
-    font-weight: bold;
-}
