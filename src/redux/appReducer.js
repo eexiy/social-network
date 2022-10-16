@@ -26,7 +26,6 @@ export const initializeApp = () => (dispatch) => {
         .then(() => {
             dispatch(initializedSuccess())
         })
-    console.log(promise);
 }
 
 

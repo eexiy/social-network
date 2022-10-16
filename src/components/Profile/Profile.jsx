@@ -1,18 +1,21 @@
-import { Navigate } from 'react-router-dom';
+import React from 'react';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
-import s from './Profile.module.css'
 import ProfileInfo from './ProfileInfo/ProfileInfo';
-const Profile = (props) => {
-    if(!props.isAuth) return <Navigate to='/login' />
 
-    return (
-        <div className={s.content}>
-            <ProfileInfo profile={props.profile}
-                status={props.status}
-                updateStatus={props.updateStatus} />
-            <MyPostsContainer />
-        </div>
-    );
+
+class Profile extends React.Component {
+    render() {
+        return (
+            <div>
+                <ProfileInfo
+                    {...this.props}
+                />
+                <MyPostsContainer
+                />
+            </div>
+        );
+    }
 }
+
 
 export default Profile;

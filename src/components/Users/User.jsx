@@ -2,7 +2,7 @@ import s from './Users.module.css'
 import userPhoto from '../../assets/images/ava.webp'
 import { NavLink } from 'react-router-dom'
 
-const User = ({user, followingInProgress, unfollow, follow}) => {
+const User = ({ user, followingInProgress, unfollow, follow }) => {
     return (
         <div className={s.users__profile} key={user.id}>
             <div>
