@@ -36,9 +36,12 @@ export const profileAPI = {
     },
     savePhoto(photoFile) {
         const formData = new FormData();
-        formData.append( 'image', photoFile );
-        return instance.put( `profile/photo`, formData );
-     }
+        formData.append('image', photoFile);
+        return instance.put(`profile/photo`, formData);
+    },
+    saveProfileInfo(profileInfo) {
+        return instance.put(`profile`, profileInfo)
+    }
 }
 export const authAPI = {
     auth() {

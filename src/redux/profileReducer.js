@@ -80,6 +80,14 @@ export const savePhoto = (photoFile) => async (dispatch) => {
         dispatch(savePhotoSuccess(response.data.data.photos));
     }
 }
+export const saveProfileInfo = (profileInfo) => async (dispatch, getState) => {
+    console.log(setStatus);
+    const userId = getState().auth.id
+    const response = await profileAPI.saveProfileInfo(profileInfo);
+    if (response.data.resultCode === 0) {
+        dispatch(getUserProfile(userId));
+    }
+}
 
 
 export default profileReducer;

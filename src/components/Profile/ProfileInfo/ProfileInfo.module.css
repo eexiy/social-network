@@ -1,5 +1,5 @@
 .profile__header img{
-    height: 400px;
+    height: 300px;
 }
 
 .profile__info {
@@ -17,4 +17,10 @@
 
 .profile__infoContact ul {
     list-style: none;
+}
+
+.profile__contact ul{
+    padding-left: 15px;
+    list-style: none;
+    font-weight: 700;
 }
