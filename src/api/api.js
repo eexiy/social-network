@@ -24,6 +24,7 @@ export const usersAPI = {
         return profileAPI.getProfile(userId)
     }
 }
+
 export const profileAPI = {
     getProfile(userId) {
         return instance.get(`profile/${userId}`)
@@ -43,6 +44,7 @@ export const profileAPI = {
         return instance.put(`profile`, profileInfo)
     }
 }
+
 export const authAPI = {
     auth() {
         return instance.get(`auth/me`)
@@ -54,5 +56,14 @@ export const authAPI = {
         return instance.delete(`auth/login`)
     },
 }
+
+export const securityAPI = {
+
+    getCaptchaAPI() {
+       return instance.get( `/security/get-captcha-url` );
+    },
+ 
+ 
+ }
 
 

@@ -1,6 +1,7 @@
-import { authAPI } from "../api/api"
+import { authAPI, securityAPI } from "../api/api"
 
 const SET_USER_DATA = 'auth/SET_USER_DATA'
+const GET_CAPTCHA_URL_SUCCESS = 'auth/GET_CAPTCHA_URL_SUCCESS'
 
 const initialState = {
     id: null,
@@ -26,6 +27,11 @@ export const setUserData = (id, email, login, isAuth) => ({
     payload: { id, email, login, isAuth }
 })
 
+const getCaptchaUrlSuccess = (captchaUrl) => ({
+    type: GET_CAPTCHA_URL_SUCCESS,
+    payload: { captchaUrl }
+});
+
 export const getAuthData = () => async (dispatch) => {
     let response = await authAPI.auth()
 
@@ -46,6 +52,13 @@ export const logout = () => async (dispatch) => {
     if (response.data.resultCode === 0) {
         dispatch(setUserData(null, null, null, false))
     }
+}
+
+export const getCaptchaUrl = () => async (dispatch) => {
+    const response = await securityAPI.getCaptchaAPI();
+    const captchaUrl = response.data.url;
+    dispatch(getCaptchaUrlSuccess(captchaUrl));
+
 }
 
 export default authReducer;
