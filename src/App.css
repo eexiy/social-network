@@ -14,5 +14,5 @@
 
 .app__wrapper-content {
   grid-area: content;
-  background: cornflowerblue;
+  background: rgb(241, 241, 241);
 }

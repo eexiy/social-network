@@ -1,8 +1,54 @@
-.users__logo img{
-    margin-left: 10px;
-    margin-top: 10px;
-    max-width: 120px;
-    width: 100%;
-    border-radius: 50%;
+.users{
+    margin-left: 12px;
 }
 
+.usersCard {
+    display: flex;
+    flex-wrap: wrap;
+    /* padding: 5px; */
+}
+
+.user__profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7px;
+    margin-right: 14px;
+    margin-bottom: 14px;
+    background-color: rgba(187, 177, 177, 0.3);
+    max-width: 180px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 4px 4px 10px -5px rgba(0, 0, 0, 0.377);
+    cursor: pointer;
+
+}
+
+.user__logo img{
+    max-width: 100px;
+    border-radius: 50%;
+    margin-bottom: 14px;
+}
+
+.user__profileName {
+    color: white;
+    text-transform: capitalize;
+}
+
+.user__profileBtn button {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 8px 24px;
+    background-color: #53a0cc;
+    color: white;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    border: none;
+    text-transform: uppercase;
+    transition: .5s ease;
+    font-size: 12px;
+    border-radius: 18px;
+}
+
+.user__profileBtn button:hover {
+   background-color: #4a7e9c;
+}

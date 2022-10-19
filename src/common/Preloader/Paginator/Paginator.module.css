@@ -1,11 +1,37 @@
-.users__num {
+.paginator {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    column-gap: 5px;
+    align-items: center;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.users__selectPage {
+
+.paginatorNum {
+    padding: 10px 20px;
+}
+
+
+.paginator__selectedPage {
     font-weight: bold;
+    background: #c0c0c09d;
+    border-radius: 6px;
+    padding: 10px 20px;
+}
+
+.paginatorBtn {
+    padding: 8px 24px;
+    background-color: #53a0cc;
+    color: white;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    border: none;
+    text-transform: uppercase;
+    transition: .5s ease;
+    font-size: 14px;
+    border-radius: 18px;
+}
+
+.paginatorBtn:hover {
+    background-color: #4a7e9c;
 }

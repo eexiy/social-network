@@ -14,19 +14,23 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, onPageChange, porti
     const rightPortionPageNumber = portionNumber * portionSize
 
     return (
-        <div className={s.users__num}>
-            {portionNumber > 1 &&
-                <button onClick={() => { setPortionNumber(portionNumber - 1) }}>PREV</button>}
+        <div className={s.paginator}>
+            {portionNumber === 1
+                ? <button disabled={true} className={s.paginatorBtn} onClick={() => { setPortionNumber(portionNumber - 1) }}>PREV</button>
+                : <button disabled={false} className={s.paginatorBtn} onClick={() => { setPortionNumber(portionNumber - 1) }}>PREV</button>
+            }
             {
                 pages
                     .filter(page => page >= leftPortionNumber && page <= rightPortionPageNumber)
                     .map(page => {
-                        return <span className={currentPage === page && s.users__selectPage}
-                            onClick={(e) => { onPageChange(page) }}>{page}</span>
+                        return <div key={page} className={s.paginatorNum}>
+                            <span className={currentPage === page ? s.paginator__selectedPage : ''}
+                                onClick={(e) => { onPageChange(page) }}>{page}</span>
+                        </div>
                     })
             }
             {portionCount > portionNumber &&
-                <button onClick={() => { setPortionNumber(portionNumber + 1) }}>NEXT</button>}
+                <button className={s.paginatorBtn} onClick={() => { setPortionNumber(portionNumber + 1) }}>NEXT</button>}
         </div>
     )
 }

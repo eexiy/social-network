@@ -8,21 +8,26 @@ const Users = ({ totalUsersCount, pageSize, currentPage, onPageChange, ...props 
 
     return (
         <div className={s.users}>
+            <div className={s.users__paginator}>
             <Paginator
                 totalUsersCount={totalUsersCount}
                 pageSize={pageSize}
                 currentPage={currentPage}
                 onPageChange={onPageChange}
             />
-            {
-                props.users.map(user => <User
-                    key={user.id}
-                    user={user}
-                    followingInProgress={props.followingInProgress}
-                    unfollow={props.unfollow}
-                    follow={props.follow}
-                />)
-            }
+            </div>
+            <div className={s.usersCard}>
+                {
+                    props.users.map(user => <User
+                        key={user.id}
+                        user={user}
+                        followingInProgress={props.followingInProgress}
+                        unfollow={props.unfollow}
+                        follow={props.follow}
+                    />)
+                }
+            </div>
+
         </div>
     )
 }

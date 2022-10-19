@@ -1,7 +1,7 @@
 import Preloader from '../../../common/Preloader/Preloader'
 import s from './ProfileInfo.module.css'
 import ProfileStatus from './ProfileStatus'
-import userPhoto from '../../../assets/images/ava.webp'
+import userPhoto from '../../../assets/images/avaLogo.webp'
 import ProfileData from './ProfileData'
 import { useState } from 'react'
 import ProfileDataForm from './ProfileDataForm'
